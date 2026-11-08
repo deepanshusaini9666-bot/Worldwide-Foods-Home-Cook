@@ -3,242 +3,471 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WORLDWIDE FOOD HOME COOK</title>
-<meta name="description" content="Discover delicious recipes from around the world. Explore food, discover cultures and cook with love.">
+<meta name="theme-color" content="#087f4e">
+<title>Worldwide Food Home Cook</title>
+<meta name="description" content="Explore delicious recipes from around the world. Discover international food, ingredients and easy cooking instructions.">
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#fffaf0;color:#243329}
-header{background:#173b2d;color:white;padding:16px;position:sticky;top:0;z-index:10}
-.nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.logo{font-size:19px;font-weight:bold}
-select,input,button{font:inherit}
-select{padding:10px;border-radius:10px;border:0}
-.hero{background:linear-gradient(120deg,#173b2d,#386d4e);color:white;padding:50px 18px}
-.hero-inner{max-width:1100px;margin:auto}
-.hero h1{font-size:clamp(34px,6vw,55px);margin:10px 0}
-.hero p{line-height:1.7;max-width:650px}
-.search{display:flex;background:white;padding:6px;border-radius:12px;max-width:650px;margin-top:22px}
-.search input{flex:1;min-width:0;border:0;padding:12px;outline:0}
-.search button{background:#ef8b35;color:white;border:0;border-radius:9px;padding:12px 20px}
-main{max-width:1100px;margin:auto;padding:25px 16px}
-h2{color:#173b2d}
-.chips{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 28px}
-.chip{border:1px solid #ddd;background:white;padding:9px 14px;border-radius:25px;cursor:pointer}
-.chip.active,.chip:hover{background:#173b2d;color:white}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 4px 15px #00000012;cursor:pointer;transition:.2s}
-.card:hover{transform:translateY(-4px)}
-.pic{height:130px;display:grid;place-items:center;font-size:65px;background:#f6e5ce}
-.info{padding:13px}
-.info h3{margin:0 0 8px}
-.meta{font-size:12px;color:#69736b}
-.tag{display:inline-block;margin-top:9px;padding:5px 9px;background:#eaf2e9;border-radius:7px;font-size:12px}
-.empty{grid-column:1/-1;text-align:center;padding:35px;background:white;border-radius:12px}
-footer{background:#173b2d;color:white;text-align:center;padding:30px 15px;margin-top:40px}
-.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:18px}
-.footer-links a{color:#ffcf91;text-decoration:none;font-weight:bold;padding:8px}
-.footer-links a:hover{text-decoration:underline;color:white}
-.modal{display:none;position:fixed;inset:0;background:#000b;z-index:20;align-items:center;justify-content:center;padding:12px}
-.modal.show{display:flex}
-.box{background:#fffaf0;width:min(700px,100%);max-height:90vh;overflow:auto;border-radius:17px}
-.modalhead{background:#173b2d;color:white;padding:17px;display:flex;justify-content:space-between;align-items:center}
-.modalhead h2{color:white;margin:0}
-.close{border:0;border-radius:50%;padding:7px 13px;font-size:20px}
-.content{padding:20px;line-height:1.7}
-.content h3{color:#173b2d}
-.content li{margin-bottom:8px}
-.foodemoji{text-align:center;font-size:75px;background:#f5e5d0;padding:15px;border-radius:12px}
-@media(max-width:850px){.grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:600px){.grid{grid-template-columns:repeat(2,1fr)}.pic{height:105px;font-size:55px}.hero{padding:35px 16px}}
-@media(max-width:350px){.grid{grid-template-columns:1fr}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f7f5;color:#222}
+header{background:#087f4e;color:white;padding:17px 12px;text-align:center}
+header h1{font-size:25px;margin-bottom:7px}
+header p{font-size:13px}
+nav{background:#05683f;padding:12px;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 9px;font-size:13px}
+.hero{background:linear-gradient(120deg,#075d3a,#14a66b);color:white;text-align:center;padding:35px 15px}
+.hero h2{font-size:27px;margin-bottom:10px}
+.hero p{font-size:14px;line-height:1.6}
+.controls{max-width:1000px;margin:18px auto;padding:0 12px}
+input,select{width:100%;padding:13px;border:1px solid #ddd;border-radius:9px;font-size:15px;background:white}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.filters button{border:0;background:#e0f2e9;color:#087f4e;padding:9px 13px;border-radius:20px;font-weight:bold}
+.filters button.active{background:#087f4e;color:white}
+.section-title{text-align:center;margin:25px 0 17px;color:#087f4e}
+.grid{max-width:1100px;margin:auto;padding:0 12px 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:15px}
+.card{background:white;border-radius:13px;overflow:hidden;box-shadow:0 3px 12px #00000012;cursor:pointer;transition:.2s}
+.card:active{transform:scale(.97)}
+.card img{width:100%;height:135px;object-fit:cover;background:#ddd}
+.card-info{padding:11px}
+.card h3{font-size:15px;margin-bottom:6px}
+.card p{font-size:12px;color:#777}
+.tag{display:inline-block;background:#e6f6ec;color:#087f4e;padding:5px 8px;border-radius:15px;font-size:11px;margin-top:8px}
+footer{background:#073e2b;color:white;text-align:center;padding:25px 10px;margin-top:20px}
+footer a{color:#b9f5d2;text-decoration:none;margin:7px;display:inline-block;font-size:13px}
+footer p{font-size:12px;margin-top:12px}
+.modal{display:none;position:fixed;inset:0;background:#000b;z-index:99;overflow:auto;padding:18px}
+.modal-box{background:white;max-width:600px;margin:20px auto;border-radius:15px;overflow:hidden}
+.modal-box img{width:100%;height:230px;object-fit:cover}
+.modal-content{padding:18px}
+.modal-content h2{color:#087f4e;margin-bottom:10px}
+.modal-content h3{margin:16px 0 8px}
+.modal-content p,.modal-content li{font-size:14px;line-height:1.7}
+.modal-content ul,.modal-content ol{padding-left:22px}
+.close{float:right;background:#e53935;color:white;border:0;padding:9px 15px;border-radius:7px;margin-bottom:12px}
+.empty{text-align:center;padding:35px;color:#777;grid-column:1/-1}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}.card img{height:180px}}
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="nav">
-<div class="logo">🌍 WORLDWIDE FOOD HOME COOK</div>
-<select id="language">
-<option value="en">🌐 English</option>
-<option value="hi">🇮🇳 हिन्दी</option>
-<option value="ur">اردو</option>
-<option value="ar">العربية</option>
-<option value="zh">中文</option>
-<option value="ja">日本語</option>
-<option value="ko">한국어</option>
-<option value="fr">Français</option>
-<option value="de">Deutsch</option>
-<option value="es">Español</option>
-<option value="it">Italiano</option>
-<option value="pt">Português</option>
-<option value="ru">Русский</option>
-<option value="bn">বাংলা</option>
-<option value="tr">Türkçe</option>
-<option value="id">Indonesia</option>
-</select>
-</div>
+<h1>🌍 Worldwide Food Home Cook</h1>
+<p>Explore Food. Discover Cultures. Cook with Love.</p>
 </header>
 
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="contact.html">Contact Us</a>
+</nav>
+
 <section class="hero">
-<div class="hero-inner">
-<h1 id="title">Taste the world,<br>one recipe at a time! 🍲</h1>
-<p id="description">Discover delicious food from around the world. Learn ingredients, quantities and easy step-by-step cooking methods.</p>
-<div class="search">
-<input id="search" placeholder="Search food, country or ingredient...">
-<button id="searchBtn">Search</button>
-</div>
-</div>
+<h2>Discover Food Around The World</h2>
+<p>Explore delicious dishes, discover new cultures and learn to cook amazing recipes at home.</p>
 </section>
 
-<main>
-<h2 id="countryTitle">🌎 Explore Countries</h2>
-<div class="chips" id="countries"></div>
+<div class="controls">
+<input type="search" id="search" placeholder="🔍 Search recipes...">
 
-<h2 id="categoryTitle">🍽️ Food Categories</h2>
-<div class="chips" id="categories"></div>
+<div style="margin-top:12px">
+<select id="language">
+<option value="en">English</option>
+<option value="hi">हिन्दी</option>
+<option value="ur">اردو</option>
+</select>
+</div>
 
-<h2 id="recipeTitle">👨‍🍳 Explore Recipes</h2>
-<p id="total"></p>
-<div class="grid" id="recipes"></div>
-</main>
+<div class="filters" id="countryFilters">
+<button class="active" data-country="All">All Countries</button>
+<button data-country="India">India</button>
+<button data-country="Italy">Italy</button>
+<button data-country="China">China</button>
+<button data-country="Japan">Japan</button>
+<button data-country="Mexico">Mexico</button>
+<button data-country="USA">USA</button>
+<button data-country="France">France</button>
+<button data-country="Thailand">Thailand</button>
+<button data-country="Turkey">Turkey</button>
+<button data-country="Korea">Korea</button>
+</div>
+
+<div class="filters" id="categoryFilters">
+<button class="active" data-category="All">All Food</button>
+<button data-category="Breakfast">Breakfast</button>
+<button data-category="Lunch">Lunch</button>
+<button data-category="Dinner">Dinner</button>
+<button data-category="Dessert">Dessert</button>
+<button data-category="Snacks">Snacks</button>
+</div>
+</div>
+
+<h2 class="section-title" id="sectionTitle">Explore Delicious Recipes</h2>
+<div class="grid" id="recipeGrid"></div>
 
 <footer>
-🌍 WORLDWIDE FOOD HOME COOK
+<h3>Worldwide Food Home Cook</h3>
 <p>Explore Food. Discover Cultures. Cook with Love.</p>
-
-<div class="footer-links">
+<div>
+<a href="index.html">Home</a>
 <a href="about.html">About Us</a>
 <a href="privacy.html">Privacy Policy</a>
 <a href="contact.html">Contact Us</a>
 </div>
-
+<p>Contact: wroldwidefoodcook@gamil.com</p>
 <p>© 2026 Worldwide Food Home Cook. All Rights Reserved.</p>
 </footer>
 
-<div class="modal" id="modal">
-<div class="box">
-<div class="modalhead">
-<h2 id="modalTitle">Recipe</h2>
-<button class="close" onclick="closeRecipe()">×</button>
+<div class="modal" id="recipeModal">
+<div class="modal-box">
+<img id="modalImage" src="" alt="Food">
+<div class="modal-content">
+<button class="close" onclick="closeRecipe()">✕ Close</button>
+<h2 id="modalTitle"></h2>
+<p id="modalInfo"></p>
+<h3>🥕 Ingredients</h3>
+<ul id="modalIngredients"></ul>
+<h3>👨‍🍳 Cooking Instructions</h3>
+<ol id="modalSteps"></ol>
 </div>
-<div class="content" id="modalContent"></div>
 </div>
 </div>
 
 <script>
-const data = [
-["Butter Chicken","Indian","Non-Veg","🍛",40,4,["500 g chicken","1 cup yogurt","2 tomatoes","1 onion","2 tbsp butter","Ginger garlic paste","Garam masala","½ cup cream"],["Marinate chicken with yogurt and spices for 20 minutes.","Cook chicken in a pan until nearly done.","Cook onion and tomatoes in butter.","Add spices and chicken. Simmer for 10 minutes.","Add cream and serve hot."]],
-["Paneer Butter Masala","Indian","Veg","🧀",30,3,["250 g paneer","3 tomatoes","1 onion","Butter","Cream","Garam masala","Salt"],["Blend tomatoes.","Cook onion in butter.","Add tomato puree and spices.","Add paneer and simmer.","Finish with cream."]],
-["Vegetable Biryani","Indian","Veg","🍚",50,4,["2 cups basmati rice","2 cups vegetables","1 onion","½ cup yogurt","Biryani masala","Mint","Oil"],["Wash and soak rice.","Cook vegetables with spices and yogurt.","Layer rice and vegetables.","Cover and cook on low heat for 20 minutes.","Garnish with mint."]],
-["Chole","Indian","Vegan","🥘",45,4,["2 cups chickpeas","2 onions","2 tomatoes","Chole masala","Ginger garlic","Oil","Salt"],["Cook onions until golden.","Add ginger garlic and tomatoes.","Add chole masala.","Add chickpeas and water.","Simmer for 20 minutes."]],
-["Masala Dosa","Indian","Veg","🥞",35,4,["2 cups dosa batter","3 potatoes","1 onion","Mustard seeds","Curry leaves","Turmeric"],["Boil and mash potatoes.","Cook onion with spices.","Mix potatoes into the filling.","Spread dosa batter on a hot pan.","Add filling and fold."]],
-["Margherita Pizza","Italian","Veg","🍕",30,2,["Pizza base","½ cup tomato sauce","150 g mozzarella","Basil","Olive oil","Oregano"],["Preheat oven to 220°C.","Spread tomato sauce.","Add mozzarella and basil.","Sprinkle oregano.","Bake for 10–15 minutes."]],
-["Spaghetti Aglio e Olio","Italian","Vegan","🍝",20,2,["200 g spaghetti","4 garlic cloves","Olive oil","Chilli flakes","Parsley","Salt"],["Boil spaghetti.","Heat olive oil.","Cook garlic gently.","Add chilli flakes and pasta.","Mix and garnish with parsley."]],
-["Lasagna","Italian","Non-Veg","🍲",75,6,["Lasagna sheets","300 g minced beef","Tomato sauce","Onion","Béchamel sauce","Mozzarella"],["Cook onion and beef.","Add tomato sauce.","Layer pasta, sauce and cheese.","Repeat layers.","Bake at 190°C for 35–40 minutes."]],
-["Tacos","Mexican","Non-Veg","🌮",25,4,["8 tortillas","300 g chicken or beans","Onion","Cumin","Paprika","Lettuce","Salsa"],["Cook onion.","Add chicken or beans and spices.","Warm tortillas.","Add filling and lettuce.","Serve with salsa."]],
-["Guacamole","Mexican","Vegan","🥑",10,4,["2 avocados","1 tomato","¼ onion","Lime","Coriander","Salt"],["Mash avocados.","Add tomato and onion.","Add coriander.","Add lime and salt.","Serve fresh."]],
-["Vegetable Fried Rice","Chinese","Vegan","🍚",20,3,["3 cups cooked rice","1 cup vegetables","Spring onions","Soy sauce","Sesame oil"],["Heat oil in a pan.","Cook vegetables.","Add rice.","Add soy sauce and sesame oil.","Garnish with spring onions."]],
-["Chicken Manchurian","Chinese","Non-Veg","🍗",35,3,["300 g chicken","Cornflour","Soy sauce","Capsicum","Onion","Tomato ketchup","Garlic"],["Coat chicken with cornflour.","Cook chicken thoroughly.","Cook garlic and vegetables.","Add sauces.","Mix chicken into sauce."]],
-["Ramen","Japanese","Non-Veg","🍜",45,2,["Ramen noodles","4 cups stock","2 eggs","Mushrooms","Spring onion","Soy sauce","Ginger"],["Simmer stock with ginger.","Cook noodles separately.","Boil eggs.","Cook mushrooms in stock.","Serve noodles with broth and toppings."]],
-["Vegetable Sushi","Japanese","Vegan","🍣",50,3,["Sushi rice","Nori sheets","Cucumber","Carrot","Avocado","Rice vinegar"],["Cook rice.","Season with vinegar.","Slice vegetables.","Place rice and vegetables on nori.","Roll and slice."]],
-["Kimchi Fried Rice","Korean","Veg","🍳",20,2,["2 cups rice","½ cup kimchi","Spring onion","Soy sauce","Sesame oil"],["Cook kimchi in oil.","Add rice.","Add soy sauce.","Mix well.","Top with spring onions."]],
-["Bibimbap","Korean","Veg","🥗",40,2,["2 cups rice","Carrot","Zucchini","Spinach","Mushrooms","Egg","Soy sauce"],["Cook rice.","Cook vegetables separately.","Arrange over rice.","Add fried egg if desired.","Serve with sauce."]],
-["Pad Thai","Thai","Non-Veg","🍜",30,2,["Rice noodles","Prawns or tofu","Egg","Tamarind","Soy sauce","Bean sprouts","Peanuts"],["Soak noodles.","Mix tamarind and soy sauce.","Cook prawns or tofu.","Add egg and noodles.","Top with sprouts and peanuts."]],
-["Tom Yum Soup","Thai","Non-Veg","🍲",25,3,["4 cups stock","Mushrooms","Prawns or tofu","Lemongrass","Lime","Chilli paste"],["Heat stock with lemongrass.","Add mushrooms.","Add prawns or tofu.","Add lime and chilli paste.","Serve hot."]],
-["Cheeseburger","American","Non-Veg","🍔",25,2,["2 buns","2 patties","Cheese","Lettuce","Tomato","Onion","Burger sauce"],["Cook patties thoroughly.","Add cheese.","Toast buns.","Add vegetables and sauce.","Assemble burger."]],
-["Pancakes","American","Veg","🥞",20,3,["1 cup flour","1 tbsp sugar","1 tsp baking powder","1 egg","¾ cup milk","Butter"],["Mix dry ingredients.","Mix egg and milk.","Combine mixtures.","Cook small pancakes.","Flip and serve."]],
-["Falafel","Arabic","Vegan","🧆",35,4,["2 cups soaked chickpeas","1 onion","Garlic","Parsley","Cumin","Flour","Salt"],["Drain chickpeas.","Blend with onion and spices.","Mix in flour.","Shape into balls.","Cook until golden and cooked through."]],
-["Hummus","Arabic","Vegan","🥣",10,4,["2 cups chickpeas","Tahini","Lemon juice","Garlic","Olive oil","Salt"],["Add ingredients to blender.","Blend until smooth.","Add cold water if needed.","Season to taste.","Serve with olive oil."]],
-["French Toast","French","Veg","🍞",15,2,["4 bread slices","1 egg","½ cup milk","Cinnamon","Sugar","Butter"],["Mix egg, milk and cinnamon.","Dip bread.","Heat butter.","Cook both sides.","Serve warm."]],
-["Ratatouille","French","Vegan","🍆",55,4,["Eggplant","Zucchini","Tomatoes","Onion","Garlic","Olive oil","Thyme"],["Slice vegetables.","Cook onion and garlic.","Spread tomato sauce in dish.","Arrange vegetables.","Bake at 180°C for 45 minutes."]],
-["Churros","Spanish","Veg","🥨",35,4,["1 cup water","Butter","1 cup flour","Sugar","Salt","Cinnamon"],["Heat water, butter and sugar.","Add flour and mix.","Cool dough slightly.","Pipe carefully into hot oil with adult supervision.","Drain and coat with cinnamon sugar."]],
-["Paella","Spanish","Non-Veg","🥘",50,4,["Rice","Chicken or vegetables","Onion","Tomato","Stock","Paprika","Peas"],["Cook onion and chicken or vegetables.","Add tomato and spices.","Add rice and stock.","Simmer until rice is cooked.","Rest before serving."]],
-["Chicken Shawarma","Turkish","Non-Veg","🌯",35,3,["400 g chicken","Yogurt","Cumin","Paprika","Garlic","Lemon","Flatbread"],["Mix yogurt and spices.","Marinate chicken.","Cook chicken fully.","Warm flatbread.","Add salad and chicken."]],
-["Baklava","Turkish","Veg","🍯",65,8,["Filo pastry","Pistachios","Butter","Sugar","Honey","Water"],["Layer buttered filo sheets.","Add chopped nuts.","Add remaining sheets.","Cut and bake until golden.","Pour cooled syrup over hot pastry."]],
-["Nasi Goreng","Indonesian","Non-Veg","🍳",20,2,["3 cups rice","1 egg","Vegetables","Soy sauce","Garlic","Spring onion"],["Scramble egg.","Cook garlic and vegetables.","Add rice.","Add sauces.","Mix and serve."]],
-["Pho","Vietnamese","Non-Veg","🍜",60,4,["Rice noodles","6 cups stock","Ginger","Star anise","Beef or tofu","Bean sprouts","Basil"],["Simmer stock with spices.","Cook noodles.","Prepare toppings.","Place noodles in bowls.","Pour hot broth and add toppings."]],
-["Greek Salad","Greek","Veg","🥗",15,3,["Tomatoes","Cucumber","Red onion","Olives","Feta","Olive oil"],["Cut vegetables.","Slice onion.","Combine with olives.","Add feta.","Drizzle with olive oil."]],
-["Brazilian Cheese Bread","Brazilian","Veg","🧀",30,4,["Tapioca flour","Milk","Oil","Egg","Grated cheese","Salt"],["Heat milk and oil.","Mix into tapioca flour.","Add egg and cheese.","Shape small balls.","Bake at 190°C for 20 minutes."]]
+const recipes = [
+{
+n:"Butter Chicken",c:"India",t:"Dinner",
+i:"https://images.unsplash.com/photo-1603894584373-5ac82b2ae398",
+d:"Creamy Indian chicken curry.",
+g:["Chicken","Butter","Tomato","Cream","Ginger","Garlic","Spices"],
+s:["Marinate chicken with spices and yogurt.","Cook chicken until golden.","Prepare tomato and butter gravy.","Add cream and chicken.","Simmer and serve hot."]
+},
+{
+n:"Masala Dosa",c:"India",t:"Breakfast",
+i:"https://images.unsplash.com/photo-1668236543090-82eba5ee5976",
+d:"Crispy South Indian dosa.",
+g:["Dosa batter","Potatoes","Onion","Mustard seeds","Curry leaves"],
+s:["Prepare potato masala.","Heat a flat pan.","Spread dosa batter in a circle.","Cook until crispy.","Add potato filling and serve."]
+},
+{
+n:"Biryani",c:"India",t:"Lunch",
+i:"https://images.unsplash.com/photo-1563379091339-03246963d96c",
+d:"Aromatic rice cooked with spices.",
+g:["Basmati rice","Chicken","Onion","Yogurt","Biryani spices"],
+s:["Wash and soak rice.","Cook chicken with spices.","Boil rice until partly cooked.","Layer rice and chicken.","Cook on low heat until ready."]
+},
+{
+n:"Samosa",c:"India",t:"Snacks",
+i:"https://images.unsplash.com/photo-1601050690597-df0568f70950",
+d:"Crispy potato-filled snack.",
+g:["Flour","Potatoes","Peas","Green chilli","Spices"],
+s:["Prepare dough.","Make spicy potato filling.","Fill dough with mixture.","Shape into triangles.","Deep fry until golden."]
+},
+{
+n:"Gulab Jamun",c:"India",t:"Dessert",
+i:"https://images.unsplash.com/photo-1666190092159-8e3b5a3e1f6a",
+d:"Soft sweet balls in sugar syrup.",
+g:["Milk powder","Flour","Milk","Sugar","Cardamom"],
+s:["Make a soft dough.","Shape small balls.","Fry on low heat.","Prepare sugar syrup.","Soak balls in warm syrup."]
+},
+{
+n:"Paneer Tikka",c:"India",t:"Snacks",
+i:"https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8",
+d:"Grilled spicy paneer cubes.",
+g:["Paneer","Yogurt","Capsicum","Onion","Spices"],
+s:["Cut paneer into cubes.","Mix yogurt and spices.","Coat paneer and vegetables.","Put on skewers.","Grill until golden."]
+},
+{
+n:"Margherita Pizza",c:"Italy",t:"Dinner",
+i:"https://images.unsplash.com/photo-1579751626657-72bc17010498",
+d:"Classic Italian cheese pizza.",
+g:["Pizza base","Tomato sauce","Mozzarella","Basil"],
+s:["Spread tomato sauce on base.","Add mozzarella cheese.","Bake until crust is golden.","Add fresh basil.","Slice and serve."]
+},
+{
+n:"Pasta Alfredo",c:"Italy",t:"Lunch",
+i:"https://images.unsplash.com/photo-1645112411341-6c4fd023714a",
+d:"Creamy white sauce pasta.",
+g:["Pasta","Cream","Butter","Garlic","Cheese"],
+s:["Boil pasta.","Melt butter and cook garlic.","Add cream and cheese.","Mix pasta into sauce.","Serve warm."]
+},
+{
+n:"Lasagna",c:"Italy",t:"Dinner",
+i:"https://images.unsplash.com/photo-1574894709920-11b28e7367e3",
+d:"Layered Italian pasta bake.",
+g:["Lasagna sheets","Tomato sauce","Cheese","Vegetables"],
+s:["Prepare tomato sauce.","Cook vegetables.","Layer sheets and sauce.","Add cheese.","Bake until bubbling."]
+},
+{
+n:"Tiramisu",c:"Italy",t:"Dessert",
+i:"https://images.unsplash.com/photo-1571877227200-a0d98ea607e9",
+d:"Italian coffee-flavoured dessert.",
+g:["Coffee","Cream","Sugar","Cocoa powder","Biscuits"],
+s:["Prepare coffee.","Whip cream and sugar.","Dip biscuits in coffee.","Layer biscuits and cream.","Chill and dust cocoa powder."]
+},
+{
+n:"Fried Rice",c:"China",t:"Lunch",
+i:"https://images.unsplash.com/photo-1603133872878-684f208fb84b",
+d:"Chinese-style vegetable fried rice.",
+g:["Cooked rice","Carrot","Peas","Spring onion","Soy sauce"],
+s:["Heat oil in a pan.","Cook vegetables.","Add cooked rice.","Add soy sauce.","Stir fry and serve."]
+},
+{
+n:"Spring Rolls",c:"China",t:"Snacks",
+i:"https://images.unsplash.com/photo-1544025162-d76694265947",
+d:"Crispy vegetable rolls.",
+g:["Spring roll sheets","Cabbage","Carrot","Onion","Soy sauce"],
+s:["Chop vegetables.","Stir fry filling.","Fill the sheets.","Roll and seal.","Fry until crispy."]
+},
+{
+n:"Sweet and Sour Chicken",c:"China",t:"Dinner",
+i:"https://images.unsplash.com/photo-1525755662778-989d0524087e",
+d:"Chicken with sweet and sour sauce.",
+g:["Chicken","Bell pepper","Pineapple","Vinegar","Soy sauce"],
+s:["Cook chicken pieces.","Prepare sauce.","Add vegetables and pineapple.","Mix chicken with sauce.","Cook until thick."]
+},
+{
+n:"Sushi",c:"Japan",t:"Lunch",
+i:"https://images.unsplash.com/photo-1579871494447-9811cf80d66c",
+d:"Japanese rice rolls.",
+g:["Sushi rice","Nori","Cucumber","Avocado","Vinegar"],
+s:["Cook and season sushi rice.","Place nori on a mat.","Spread rice evenly.","Add vegetables.","Roll tightly and slice."]
+},
+{
+n:"Ramen",c:"Japan",t:"Dinner",
+i:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624",
+d:"Japanese noodle soup.",
+g:["Noodles","Vegetable stock","Mushrooms","Spring onion","Soy sauce"],
+s:["Prepare vegetable stock.","Cook noodles.","Add mushrooms and seasoning.","Place noodles in a bowl.","Pour hot broth over them."]
+},
+{
+n:"Tempura",c:"Japan",t:"Snacks",
+i:"https://images.unsplash.com/photo-1553621042-f6e147245754",
+d:"Light crispy Japanese fried vegetables.",
+g:["Vegetables","Flour","Cold water","Oil"],
+s:["Cut vegetables.","Mix flour with cold water.","Dip vegetables in batter.","Fry until crispy.","Serve with dipping sauce."]
+},
+{
+n:"Tacos",c:"Mexico",t:"Lunch",
+i:"https://images.unsplash.com/photo-1551504734-5ee1c4a1479b",
+d:"Mexican tortilla with tasty filling.",
+g:["Tortillas","Beans","Tomato","Onion","Cheese"],
+s:["Prepare the filling.","Warm tortillas.","Add beans and vegetables.","Top with cheese.","Fold and serve."]
+},
+{
+n:"Guacamole",c:"Mexico",t:"Snacks",
+i:"https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7",
+d:"Fresh avocado dip.",
+g:["Avocado","Tomato","Onion","Lime","Salt"],
+s:["Mash avocado.","Chop tomato and onion.","Mix everything together.","Add lime and salt.","Serve fresh."]
+},
+{
+n:"Burrito",c:"Mexico",t:"Lunch",
+i:"https://images.unsplash.com/photo-1626700051175-6818013e1d4f",
+d:"Filled Mexican tortilla wrap.",
+g:["Tortilla","Rice","Beans","Cheese","Vegetables"],
+s:["Cook rice and beans.","Warm tortilla.","Add filling.","Fold the sides.","Roll and serve."]
+},
+{
+n:"Pancakes",c:"USA",t:"Breakfast",
+i:"https://images.unsplash.com/photo-1528207776546-365bb710ee93",
+d:"Fluffy breakfast pancakes.",
+g:["Flour","Milk","Egg","Sugar","Baking powder"],
+s:["Mix dry ingredients.","Add milk and egg.","Make smooth batter.","Cook small portions on a pan.","Serve with honey."]
+},
+{
+n:"Cheeseburger",c:"USA",t:"Lunch",
+i:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+d:"Juicy burger with cheese.",
+g:["Burger bun","Patty","Cheese","Lettuce","Tomato"],
+s:["Cook the patty.","Toast burger buns.","Add lettuce and tomato.","Place patty and cheese.","Close and serve."]
+},
+{
+n:"Apple Pie",c:"USA",t:"Dessert",
+i:"https://images.unsplash.com/photo-1621743478914-cc8a86d7e7b5",
+d:"Classic sweet apple pie.",
+g:["Apples","Flour","Butter","Sugar","Cinnamon"],
+s:["Prepare pie dough.","Slice apples.","Mix apples with sugar and cinnamon.","Fill the pie crust.","Bake until golden."]
+},
+{
+n:"French Toast",c:"France",t:"Breakfast",
+i:"https://images.unsplash.com/photo-1484723091739-30a097e8f929",
+d:"Golden sweet breakfast toast.",
+g:["Bread","Eggs","Milk","Sugar","Cinnamon"],
+s:["Whisk eggs and milk.","Dip bread slices.","Heat butter in a pan.","Cook both sides.","Serve with fruit."]
+},
+{
+n:"Croissant",c:"France",t:"Breakfast",
+i:"https://images.unsplash.com/photo-1555507036-ab1f4038808a",
+d:"Buttery French pastry.",
+g:["Flour","Butter","Yeast","Milk","Sugar"],
+s:["Prepare yeast dough.","Fold butter into dough.","Roll and fold several times.","Shape croissants.","Bake until golden."]
+},
+{
+n:"Crepes",c:"France",t:"Dessert",
+i:"https://images.unsplash.com/photo-1519676867240-f03562e64548",
+d:"Thin French pancakes.",
+g:["Flour","Milk","Eggs","Butter","Sugar"],
+s:["Mix all ingredients.","Rest the batter.","Pour a thin layer into a pan.","Cook both sides.","Serve with fruit."]
+},
+{
+n:"Pad Thai",c:"Thailand",t:"Lunch",
+i:"https://images.unsplash.com/photo-1559314809-0d155014e29e",
+d:"Thai stir-fried noodles.",
+g:["Rice noodles","Tofu","Peanuts","Bean sprouts","Soy sauce"],
+s:["Soak rice noodles.","Cook tofu.","Add noodles and sauce.","Mix bean sprouts.","Top with peanuts."]
+},
+{
+n:"Green Curry",c:"Thailand",t:"Dinner",
+i:"https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd",
+d:"Thai coconut curry.",
+g:["Coconut milk","Green curry paste","Vegetables","Basil"],
+s:["Heat curry paste.","Add coconut milk.","Add vegetables.","Simmer until cooked.","Finish with basil."]
+},
+{
+n:"Baklava",c:"Turkey",t:"Dessert",
+i:"https://images.unsplash.com/photo-1519676867240-f03562e64548",
+d:"Sweet layered pastry with nuts.",
+g:["Pastry sheets","Pistachios","Butter","Sugar","Honey"],
+s:["Layer pastry sheets with butter.","Add chopped nuts.","Cut into pieces.","Bake until golden.","Pour warm syrup over it."]
+},
+{
+n:"Turkish Kebab",c:"Turkey",t:"Dinner",
+i:"https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
+d:"Grilled Turkish-style kebab.",
+g:["Chicken","Yogurt","Garlic","Paprika","Lemon"],
+s:["Mix chicken with marinade.","Rest for 30 minutes.","Put chicken on skewers.","Grill until cooked.","Serve with salad."]
+},
+{
+n:"Kimchi Fried Rice",c:"Korea",t:"Lunch",
+i:"https://images.unsplash.com/photo-1498654896293-37aacf113fd9",
+d:"Korean spicy fried rice.",
+g:["Rice","Kimchi","Spring onion","Soy sauce","Sesame oil"],
+s:["Heat sesame oil.","Cook chopped kimchi.","Add rice.","Season with soy sauce.","Garnish with spring onion."]
+},
+{
+n:"Korean Noodles",c:"Korea",t:"Dinner",
+i:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624",
+d:"Spicy Korean-style noodles.",
+g:["Noodles","Chilli paste","Garlic","Vegetables","Soy sauce"],
+s:["Boil noodles.","Prepare spicy sauce.","Cook vegetables.","Mix noodles and sauce.","Serve hot."]
+},
+{
+n:"Chocolate Cake",c:"USA",t:"Dessert",
+i:"https://images.unsplash.com/photo-1578985545062-69928b1d9587",
+d:"Rich chocolate cake.",
+g:["Flour","Cocoa powder","Sugar","Milk","Baking powder"],
+s:["Mix dry ingredients.","Add milk and oil.","Pour into a cake tin.","Bake until cooked.","Cool and decorate."]
+}
 ];
 
-const countryList=["All","Indian","Italian","Mexican","Chinese","Japanese","Korean","Thai","American","Arabic","French","Spanish","Turkish","Indonesian","Vietnamese","Greek","Brazilian"];
-const categoryList=["All","Veg","Non-Veg","Vegan"];
-let country="All",category="All",query="";
+let selectedCountry="All";
+let selectedCategory="All";
+
+const grid=document.getElementById("recipeGrid");
+
+function showRecipes(){
+const query=document.getElementById("search").value.toLowerCase();
+
+const filtered=recipes.filter(r=>
+(r.n.toLowerCase().includes(query) || r.c.toLowerCase().includes(query) || r.d.toLowerCase().includes(query)) &&
+(selectedCountry==="All" || r.c===selectedCountry) &&
+(selectedCategory==="All" || r.t===selectedCategory)
+);
+
+grid.innerHTML="";
+
+if(filtered.length===0){
+grid.innerHTML='<div class="empty">No recipes found. Try another search.</div>';
+return;
+}
+
+filtered.forEach(r=>{
+const index=recipes.indexOf(r);
+grid.innerHTML+=`
+<div class="card" onclick="openRecipe(${index})">
+<img src="${r.i}?auto=format&fit=crop&w=600&q=85" alt="${r.n}" loading="lazy">
+<div class="card-info">
+<h3>${r.n}</h3>
+<p>${r.d}</p>
+<span class="tag">${r.c} • ${r.t}</span>
+</div>
+</div>`;
+});
+}
+
+function openRecipe(index){
+const r=recipes[index];
+document.getElementById("modalImage").src=r.i+"?auto=format&fit=crop&w=900&q=90";
+document.getElementById("modalTitle").textContent=r.n;
+document.getElementById("modalInfo").textContent=r.c+" • "+r.t+" • "+r.d;
+
+document.getElementById("modalIngredients").innerHTML=
+r.g.map(x=>"<li>"+x+"</li>").join("");
+
+document.getElementById("modalSteps").innerHTML=
+r.s.map(x=>"<li>"+x+"</li>").join("");
+
+document.getElementById("recipeModal").style.display="block";
+document.body.style.overflow="hidden";
+}
+
+function closeRecipe(){
+document.getElementById("recipeModal").style.display="none";
+document.body.style.overflow="auto";
+}
+
+document.getElementById("search").addEventListener("input",showRecipes);
+
+document.querySelectorAll("#countryFilters button").forEach(btn=>{
+btn.addEventListener("click",()=>{
+document.querySelectorAll("#countryFilters button").forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+selectedCountry=btn.dataset.country;
+showRecipes();
+});
+});
+
+document.querySelectorAll("#categoryFilters button").forEach(btn=>{
+btn.addEventListener("click",()=>{
+document.querySelectorAll("#categoryFilters button").forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+selectedCategory=btn.dataset.category;
+showRecipes();
+});
+});
 
 const translations={
 en:{
-title:"Taste the world, one recipe at a time! 🍲",
-description:"Discover delicious food from around the world. Learn ingredients, quantities and easy step-by-step cooking methods.",
-country:"🌎 Explore Countries",category:"🍽️ Food Categories",recipe:"👨‍🍳 Explore Recipes",search:"Search",all:"All",veg:"Veg",nonveg:"Non-Veg",vegan:"Vegan",ingredients:"Ingredients",steps:"Cooking Steps",time:"Cooking Time",serves:"Servings"
+title:"Explore Delicious Recipes",
+search:"🔍 Search recipes...",
+home:"Home"
 },
 hi:{
-title:"दुनिया के स्वाद, हर रेसिपी के साथ! 🍲",
-description:"दुनिया भर के स्वादिष्ट व्यंजन खोजें। सामग्री, मात्रा और खाना बनाने का आसान तरीका सीखें।",
-country:"🌎 देश के अनुसार खाना",category:"🍽️ खाने की श्रेणियाँ",recipe:"👨‍🍳 सभी रेसिपी",search:"खोजें",all:"सभी",veg:"शाकाहारी",nonveg:"मांसाहारी",vegan:"वीगन",ingredients:"सामग्री",steps:"बनाने की विधि",time:"बनाने का समय",serves:"लोगों के लिए"
+title:"स्वादिष्ट रेसिपी खोजें",
+search:"🔍 रेसिपी खोजें...",
+home:"होम"
 },
 ur:{
-title:"دنیا کے ذائقے، ہر ترکیب کے ساتھ! 🍲",
-description:"دنیا بھر کے مزیدار کھانے دریافت کریں اور بنانے کا آسان طریقہ سیکھیں۔",
-country:"🌎 ممالک",category:"🍽️ کھانے کی اقسام",recipe:"👨‍🍳 تمام ترکیبیں",search:"تلاش",all:"سب",veg:"سبزی خور",nonveg:"گوشت",vegan:"ویگن",ingredients:"اجزاء",steps:"بنانے کا طریقہ",time:"وقت",serves:"افراد"
+title:"مزیدار ترکیبیں دریافت کریں",
+search:"🔍 ترکیب تلاش کریں...",
+home:"ہوم"
 }
 };
 
-let language="en";
-function tr(key){return translations[language]?.[key]||translations.en[key]||key}
-function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-
-function drawFilters(){
-document.getElementById("countries").innerHTML=countryList.map(x=>`<button class="chip ${country===x?'active':''}" onclick="setCountry('${x}')">${x==="All"?tr("all"):x}</button>`).join("");
-document.getElementById("categories").innerHTML=categoryList.map(x=>`<button class="chip ${category===x?'active':''}" onclick="setCategory('${x}')">${x==="All"?tr("all"):x==="Veg"?tr("veg"):x==="Non-Veg"?tr("nonveg"):tr("vegan")}</button>`).join("");
-}
-function setCountry(x){country=x;render()}
-function setCategory(x){category=x;render()}
-
-function render(){
-drawFilters();
-const result=data.filter(r=>{
-const searchText=[r[0],r[1],r[2],...r[6]].join(" ").toLowerCase();
-return (country==="All"||r[1]===country)&&(category==="All"||r[2]===category)&&searchText.includes(query.toLowerCase());
+document.getElementById("language").addEventListener("change",function(){
+const lang=translations[this.value]||translations.en;
+document.getElementById("sectionTitle").textContent=lang.title;
+document.getElementById("search").placeholder=lang.search;
 });
-document.getElementById("total").textContent=result.length+" recipes found";
-document.getElementById("recipes").innerHTML=result.length?result.map(r=>{
-const index=data.indexOf(r);
-return `<div class="card" onclick="showRecipe(${index})"><div class="pic">${r[3]}</div><div class="info"><h3>${escapeHTML(r[0])}</h3><div class="meta">🌍 ${r[1]} • ⏱ ${r[4]} min</div><span class="tag">${r[2]}</span></div></div>`;
-}).join(""):`<div class="empty">🔎 No food found. Try another search.</div>`;
-}
-function showRecipe(index){
-const r=data[index];
-document.getElementById("modalTitle").textContent=r[0];
-document.getElementById("modalContent").innerHTML=`
-<div class="foodemoji">${r[3]}</div>
-<p>🌍 ${r[1]} &nbsp; • &nbsp; ${r[2]} &nbsp; • &nbsp; ⏱ ${r[4]} minutes &nbsp; • &nbsp; ${r[5]} servings</p>
-<h3>🧺 ${tr("ingredients")}</h3>
-<ul>${r[6].map(x=>`<li>${escapeHTML(x)}</li>`).join("")}</ul>
-<h3>👨‍🍳 ${tr("steps")}</h3>
-<ol>${r[7].map(x=>`<li>${escapeHTML(x)}</li>`).join("")}</ol>
-<p><b>Tip:</b> Cooking times are approximate. Ensure meat, seafood and eggs are cooked safely. Ask an adult for help with knives and hot pans.</p>`;
-document.getElementById("modal").classList.add("show");
-}
-function closeRecipe(){document.getElementById("modal").classList.remove("show")}
 
-document.getElementById("search").addEventListener("input",e=>{query=e.target.value;render()});
-document.getElementById("searchBtn").onclick=()=>{query=document.getElementById("search").value;render()};
-document.getElementById("language").onchange=e=>{
-language=e.target.value;
-const rtl=language==="ur"||language==="ar";
-document.documentElement.dir=rtl?"rtl":"ltr";
-document.getElementById("title").innerHTML=tr("title");
-document.getElementById("description").textContent=tr("description");
-document.getElementById("countryTitle").textContent=tr("country");
-document.getElementById("categoryTitle").textContent=tr("category");
-document.getElementById("recipeTitle").textContent=tr("recipe");
-document.getElementById("searchBtn").textContent=tr("search");
-document.getElementById("search").placeholder=language==="hi"?"खाना खोजें...":language==="ur"?"کھانا تلاش کریں...":"Search food, country or ingredient...";
-render();
-};
-document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")closeRecipe()};
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeRecipe()});
-render();
+document.getElementById("recipeModal").addEventListener("click",function(e){
+if(e.target===this)closeRecipe();
+});
+
+showRecipes();
 </script>
+
 </body>
   </html>
